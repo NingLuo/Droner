@@ -1,40 +1,205 @@
 @import "settings";
 @import "foundation";
+@import "colors";
+@import "typography";
+@import "marginpadding";
+@import "compass/css3/transform";
 
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+body {
+	background-color: $background;
+	font-family: $regular-font;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: $regular-font;
+}
+
+#logo, nav {
+	margin-top: $top-header;
+}
+
+#logo {
+	display: block;
+}
+
+#slogan {
+	font-size: $slogan;
+	color: $dark-blue;
+	display: block;
+	margin-bottom: 20px;
+}
+
+nav {
+	ul {
+		list-style-type: none;
+		float: right;
+	}
+	li {
+		display: inline;
+		float: left;
+		&:last-child a {
+			padding-right: 0px;
+		}
+		&:first-child a {
+			padding-left: 0px;
+		};
+	}
+	a {
+		padding: $top-nav-padding;
+		text-transform: uppercase;
+		color: $dark-blue;
+		font-size: $nav-items;
+		font-weight: bold;
+	}
+}
+
+.content {
+	background: url(../images/hero.jpg) no-repeat;
+	background-size: cover;
+	height: 550px;
+	width: 100%;
+	overflow: visible;
+
+	.feature {
+		background: $accent;
+		color: #fff;
+		text-transform: uppercase;
+		display: inline-block;
+		padding: 0 5px;
+		font-size: $feature;
+		margin-top: $feature-padding;
+		margin-bottom: 0;
+	}
+
+	h1 {
+		color: #fff;
+		font-size: $h1;
+		margin-bottom: 0;
+	}
+
+	.subtext {
+		color: $light-blue;
+		font-size: $subtext;
+		margin-bottom: 70px;
+	}
+}
+
+.gallery {
+
+	.gcontainer {
+		background: $gallery-background;
+		padding: $gallery-padding;
+		width: 230px;
+		margin-bottom: 15px;
+
+		&:hover {
+			@include transform(scale(1.05));
+		};
+	}
+
+	.gtitle {
+		color: $dark-blue;
+		font-size: $article-titles;
+		line-height: $article-titles-lh;
+		margin: $gallery-margin-inner;
+		display: block;
+	}
+
+	.gsubtext {
+		color: $dark-blue;
+		font-size: $article-subtitles;
+		margin: $gallery-margin-inner;
+	}
+
+	.gsubtext strong {
+		color: $accent;
+	}
+}
+
+.sidebar {
+	background-color: $light-blue;
+	padding: 12px 15px;
+
+	h2 {
+		font-weight: bold;
+		font-size: $sidebar-titles;
+		text-transform: uppercase;
+		display: inline;
+		float: left;
+	}
+
+	img {
+		display: inline;
+		float: right;
+	}
+
+	ul {
+		list-style-type: none;
+		clear: both;
+		margin: 40px 0 0 0;
+	}
+
+	a {
+		color: #000;
+		font-size: $forum-title;
+	}
+
+	a span {
+		color: $mid-blue !important;
+		text-transform: uppercase;
+		margin: -5px 0 12px 0;
+		display: block;
+		font-size: $forum-auth;
+	}
+}
+
+/*tablet size*/
+@media only screen and (max-width: 64.0625em) {
+
+	#logo, nav {
+		margin: $top-header-mobile;
+	}
+
+	#slogan {
+		display: none;
+	}
+
+	nav {
+		a {
+			font-size: $nav-items-mobile;
+		}
+	}
+
+	content {
+		padding: 0 20px;
+
+		h1 {
+			font-size: $h1-mobile;
+			line-height: 1em;
+			margin-bottom: 20px;
+		}
+
+		.subtext {
+			font-size: $subtext-mobile;
+		}
+
+		.feature {
+			margin-top: 30px;
+		}
+	}
+}
+
+@media only screen and (max-width: 29.9999em) {
+
+	#logo, nav {
+		margin: $top-header-phone;
+	}
+
+	.gcontainer {
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		width: 70%;
+	}
+}
